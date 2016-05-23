@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/VariSingh/whysomean#readme",
   "dependencies": {
-    "express": "^4.13.4"
+    "express": "^4.13.4",
+    "pug": "^2.0.0-alpha8"
   }
 }
