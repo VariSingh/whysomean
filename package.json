@@ -1,0 +1,28 @@
+{
+  "name": "whysomean",
+  "version": "1.0.0",
+  "description": "Messing with mean",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/VariSingh/whysomean.git"
+  },
+  "keywords": [
+    "mongo",
+    "express",
+    "angular",
+    "node"
+  ],
+  "author": "Varinder Singh",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/VariSingh/whysomean/issues"
+  },
+  "homepage": "https://github.com/VariSingh/whysomean#readme",
+  "dependencies": {
+    "express": "^4.13.4"
+  }
+}
