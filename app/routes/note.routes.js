@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 
-var notes_controller = require('../controllers/note.controller');
+var notes_controller = require('../controllers/note/note.controller');
 
 
 router.get("/note",(req,res) => notes_controller.findOne(req,res))

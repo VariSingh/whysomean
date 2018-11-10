@@ -24,9 +24,11 @@ app.use(bodyParser.json())
 // app.get('/', (req, res) => {
 //     res.json({"message": "Welcome to EasyNotes application. Take notes quickly. Organize and keep track of all your notes."});
 // });
-let routes = require('./app/routes/note.routes.js');
+let noteRoutes = require('./app/routes/note.routes.js');
+let authRoutes = require('./app/routes/auth.routes.js');
 
-app.use("/",routes);
+app.use("/",noteRoutes);
+app.use("/",authRoutes);
 app.listen(3000, function() {
     console.log('listening on 3000')
 })

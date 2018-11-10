@@ -1,4 +1,4 @@
-let Note = require('../models/note.model.js');
+let Note = require('../../models/note/note.model.js');
 
 // Create and Save a new Note
 exports.create = (req, res) => {
