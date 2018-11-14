@@ -1,29 +1,23 @@
-const Note = require('../../models/note/note.model.js');
+const Category = require('../../models/category/category.model.js');
 
-// Create and Save a new Note
+// Create and Save a new Category
 exports.create = (req, res) => {
-    note = new Note({
-        "title": req.body.title,
-        "note":req.body.note
+    category = new Category({
+        "name": req.body.name,
     })
 
-    note.save((error,result)=>{
+    category.save((error,result)=>{
         if(error){
-            return res.status(400).send(error);
+            return res.status(401).send(error);
         }else{
             return res.status(200).send(result);
         }
     })
 };
 
-// Retrieve and return all notes from the database.
+// Retrieve and return all Category from the database.
 exports.findAll = (req, res) => {
-
-};
-
-// Find a single note with a noteId
-exports.findOne = (req, res) => {
-    Note.find({},{"__v":0},(error,result)=>{
+    Category.find({},{"__v":0},(error,result)=>{
         if(error){
             res.status(400).send(error);
         }else{
@@ -31,7 +25,6 @@ exports.findOne = (req, res) => {
         }
         
     })
-    
 };
 
 // Update a note identified by the noteId in the request

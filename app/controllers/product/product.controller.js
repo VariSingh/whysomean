@@ -1,13 +1,15 @@
-const Note = require('../../models/note/note.model.js');
+const Product = require('../../models/product/product.model.js');
 
 // Create and Save a new Note
 exports.create = (req, res) => {
-    note = new Note({
-        "title": req.body.title,
-        "note":req.body.note
+    product = new Product({
+        "name": req.body.name,
+        "description":req.body.description,
+        "price":req.body.price,
+        "category":req.body.category,
     })
 
-    note.save((error,result)=>{
+    product.save((error,result)=>{
         if(error){
             return res.status(400).send(error);
         }else{
@@ -16,14 +18,13 @@ exports.create = (req, res) => {
     })
 };
 
-// Retrieve and return all notes from the database.
+// Retrieve and return all Products from the database.
 exports.findAll = (req, res) => {
-
-};
-
-// Find a single note with a noteId
-exports.findOne = (req, res) => {
-    Note.find({},{"__v":0},(error,result)=>{
+    Product.find({},{"__v":0})
+    .populate('category')
+    .exec((error,result)=>{
+        console.log("error ==> ",error);
+        console.log("result ==> ",result);
         if(error){
             res.status(400).send(error);
         }else{
@@ -31,7 +32,6 @@ exports.findOne = (req, res) => {
         }
         
     })
-    
 };
 
 // Update a note identified by the noteId in the request

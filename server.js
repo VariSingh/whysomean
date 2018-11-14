@@ -26,9 +26,16 @@ app.use(bodyParser.json())
 // });
 let noteRoutes = require('./app/routes/note.routes.js');
 let authRoutes = require('./app/routes/auth.routes.js');
+let categoryRoutes = require('./app/routes/category.routes.js');
+let productRoutes = require('./app/routes/product.routes.js');
+let orderRoutes = require('./app/routes/order.routes.js');
 
 app.use("/",noteRoutes);
 app.use("/",authRoutes);
+app.use("/",categoryRoutes);
+app.use("/",productRoutes);
+app.use("/",orderRoutes);
+
 app.listen(3000, function() {
     console.log('listening on 3000')
 })
