@@ -3,6 +3,23 @@ const bodyParser = require('body-parser');
 // Configuring the database
 const dbConfig = require('./config/database.config.js');
 const mongoose = require('mongoose');
+const io = require("socket.io").listen(3001);
+
+
+
+io.on("connection",(socket)=>{
+    console.log("new user connected");
+
+    socket.on("testmessage",(data)=>{
+        console.log(data.message);
+    })
+    
+    socket.on("disconnect",()=>{
+        console.log("user disconnected");
+    })
+})
+
+
 
 mongoose.connect(dbConfig.url,{
     useNewUrlParser: true
@@ -19,6 +36,9 @@ app.use(bodyParser.urlencoded({ extended: true }))
 
 // parse requests of content-type - application/json
 app.use(bodyParser.json())
+
+//serve static resources
+app.use(express.static('public'));
 
 // define a simple route
 // app.get('/', (req, res) => {

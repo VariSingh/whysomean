@@ -1,0 +1,32 @@
+<html>
+    <head>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.1/socket.io.js"></script>
+        <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+        <script>
+        $(function(){
+            var socket = io.connect("http://localhost:3001");
+
+
+            //send message to server
+            $("#send").click(()=>{
+                var mymessage = $("#inputbox").val();
+               socket.emit('testmessage',{message:mymessage});
+            })
+
+            //listen for new messages
+            socket.on("newmessage",(data)=>{
+                console.log("data",data);
+                $(".messages").append("<div>"+data.message+"</div>");
+            })
+
+
+
+        });
+        </script>
+    </head>
+    <body>
+        <input type="text" id="inputbox"/>
+        <button id="send">Send</button>
+        <div class="messages"></div>
+    </body>
+</html>
