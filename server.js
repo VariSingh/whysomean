@@ -4,6 +4,19 @@ const bodyParser = require('body-parser');
 const dbConfig = require('./config/database.config.js');
 const mongoose = require('mongoose');
 const io = require("socket.io").listen(3001);
+const redis = require('redis');
+
+//redis
+const client = redis.createClient(); //creates a new client
+
+client.on('connect',()=>{
+    console.log("connected to redis");
+})
+
+
+client.hgetall('myhash', function(err, result) {
+    console.log("redis result",result);
+});
 
 
 
